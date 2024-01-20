@@ -2,7 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Info about traffic light example
 All the magic happens in tailwind.config.ts and the tailwindcss classes in app/page.tsx `animate-red-loop`, `animate-yellow-loop`, `animate-green-loop`.
-```ts tailwind.config.ts config
+```ts 
+tailwind.config.ts config
 ...
 theme: {
     ...
@@ -12,8 +13,8 @@ theme: {
             'red-loop': 'redLoop 10s steps(1) infinite',
             'yellow-loop': 'yellowLoop 10s steps(1) infinite',
             'green-loop': 'greenLoop 10s steps(1) infinite',
-            },
-            keyframes: {
+        },
+        keyframes: {
             redLoop: {
                 '0%, 42%': { backgroundColor: 'red' }, // Start being transparent at 42% of the duration
                 '42%, 100%': { backgroundColor: 'transparent' },  // end being transparent at 100% of the duration
@@ -28,7 +29,8 @@ theme: {
                 '42%, 80%': { backgroundColor: 'green' }, // be visible between 42% and 80% of the duration
                 '80%, 100%': { backgroundColor: 'transparent' }, // end being transparent until 100% of the duration
             },
-        }
+        },
+        ...
     },
     ...
 }
