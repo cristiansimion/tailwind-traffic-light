@@ -1,5 +1,39 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Info about traffic light example
+All the magic happens in tailwind.config.ts and the tailwindcss classes in app/page.tsx `animate-red-loop`, `animate-yellow-loop`, `animate-green-loop`.
+```ts tailwind.config.ts config
+...
+theme: {
+    ...
+    extend: {
+        ...
+        animation: {
+            'red-loop': 'redLoop 10s steps(1) infinite',
+            'yellow-loop': 'yellowLoop 10s steps(1) infinite',
+            'green-loop': 'greenLoop 10s steps(1) infinite',
+            },
+            keyframes: {
+            redLoop: {
+                '0%, 42%': { backgroundColor: 'red' }, // Start being transparent at 42% of the duration
+                '42%, 100%': { backgroundColor: 'transparent' },  // end being transparent at 100% of the duration
+
+            },
+            yellowLoop: {
+                '0%, 80%': { backgroundColor: 'transparent' }, // start with being transparent until 80% of the duration
+                '80%, 100%': { backgroundColor: 'yellow' }, // end with being yellow until 100% of the duration
+            },
+            greenLoop: {
+                '0%, 42%': { backgroundColor: 'transparent' }, // start being transparent until 42% of the duration
+                '42%, 80%': { backgroundColor: 'green' }, // be visible between 42% and 80% of the duration
+                '80%, 100%': { backgroundColor: 'transparent' }, // end being transparent until 100% of the duration
+            },
+        }
+    },
+    ...
+}
+```
+
 ## Getting Started
 
 First, run the development server:

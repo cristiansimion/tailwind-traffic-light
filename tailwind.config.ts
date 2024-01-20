@@ -13,6 +13,27 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        'red-loop': 'redLoop 10s steps(1) infinite',
+        'yellow-loop': 'yellowLoop 10s steps(1) infinite',
+        'green-loop': 'greenLoop 10s steps(1) infinite',
+      },
+      keyframes: {
+        redLoop: {
+          '0%, 42%': { backgroundColor: 'red' },
+          '42%, 100%': { backgroundColor: 'transparent' },
+
+        },
+        yellowLoop: {
+          '0%, 80%': { backgroundColor: 'transparent' },
+          '80%, 100%': { backgroundColor: 'yellow' },
+        },
+        greenLoop: {
+          '0%, 42%': { backgroundColor: 'transparent' },
+          '42%, 80%': { backgroundColor: 'green' },
+          '80%, 100%': { backgroundColor: 'transparent' },
+        },
+      },
     },
   },
   plugins: [],
